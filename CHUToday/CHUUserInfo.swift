@@ -12,6 +12,7 @@ enum CHUUserInfoType: String, Decodable {
     case fee = "fee"
     case flow = "flow"
     case voice = "voice"
+    case free = "free"
 }
 
 struct CHUUserInfoItem: Decodable {
@@ -26,4 +27,23 @@ struct CHUUserInfoItem: Decodable {
 struct CHUUserInfo: Decodable {
     let flush_date_time: String
     let dataList: [CHUUserInfoItem]
+}
+
+enum CHUFeePolicyType: String, Decodable {
+    //语音
+    case talk = "1"
+    // 短信
+    case text = "2"
+    // 流量
+    case data = "3"
+}
+
+struct CHUFeePolicy: Decodable {
+    let addUpItemName: String
+    let elemType: CHUFeePolicyType
+    let canUseResourceVal: String
+}
+
+struct CHUFeeList: Decodable {
+    let woFeePolicy: [CHUFeePolicy]
 }

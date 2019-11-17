@@ -9,7 +9,7 @@ end
 target 'CHUToday' do
 
   use_frameworks!
-
-  pod 'Alamofire', '~> 5.0.0.beta.1'
+  
+  pod "PromiseKit", "~> 6.8"
   
 end
