@@ -24,17 +24,6 @@ class ViewController: UIViewController {
         print("infoURL: \(infoRequest)")
         URLSession.shared.dataTask(with: infoRequest) { (data, response, error) in
             print("response")
-            guard error == nil else {
-                print(error!)
-                return
-            }
-            guard let data = data else {
-                print("Data is empty")
-                return
-            }
-            
-            let json = try! JSONSerialization.jsonObject(with: data, options: [])
-            print(json)
         }.resume()
     }
 }
